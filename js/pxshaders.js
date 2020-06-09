@@ -1,6 +1,6 @@
-var shades ={
-	simplefs:
-    	"precision mediump float;\n\
+var shades = {
+  simplefs:
+    "precision mediump float;\n\
     	varying vec4 vColor;\n\
     	varying vec2 tc;\n\
 		uniform sampler2D tex0;\n\
@@ -11,8 +11,8 @@ var shades ={
     		vec4 tt = texture2D(tex0,tc);\n\
         	gl_FragColor = vec4(mix(vec3(1.),tt.rgb,usetex)*vColor.rgb*vec3(tt.a*vColor.a),vColor.a*tt.a);\n\
     	}",
-	simplevs:
-	    "attribute vec3 pos;\n\
+  simplevs:
+    "attribute vec3 pos;\n\
 	    attribute vec4 color;\n\
 	    attribute vec2 texcoord;\n\
 	    \n\
@@ -31,8 +31,8 @@ var shades ={
         	vec2 ttt = ((texcoord*2.-vec2(1.))*tscale+toffset)*0.5+vec2(0.5);\n\
         	tc= ttt;\n\
     	}",
-    particlevs:
-	    "attribute vec3 pos;\n\
+  particlevs:
+    "attribute vec3 pos;\n\
 	    attribute vec4 color;\n\
 	    attribute vec2 texcoord;\n\
 	    \n\
@@ -48,9 +48,9 @@ var shades ={
         	vColor = color*pcolor;\n\
         	tc= texcoord;\n\
     	}",
-    	
-	 gaussvs:
-	 	"attribute vec3 pos;\n\
+
+  gaussvs:
+    "attribute vec3 pos;\n\
      	attribute vec4 color;\n\
      	attribute vec2 texcoord;\n\
      	uniform vec2 width;\n\
@@ -74,8 +74,8 @@ var shades ={
     		texcoordF2 = texcoord + width * 3.0;\n\
     		vColor=color;\n\
 		}",
-     basevs:
-     	"attribute vec3 pos;\n\
+  basevs:
+    "attribute vec3 pos;\n\
      	attribute vec4 color;\n\
      	attribute vec2 texcoord;\n\
      	varying vec4 vColor;\n\
@@ -86,8 +86,8 @@ var shades ={
      		tc = texcoord;\n\
      		vColor = color;\n\
      	}",
-     basefs:
-    	"precision mediump float;\n\
+  basefs:
+    "precision mediump float;\n\
     	varying vec4 vColor;\n\
     	varying vec2 tc;\n\
 		uniform sampler2D tex0;\n\
@@ -96,8 +96,8 @@ var shades ={
     	void main(void) {\n\
         	gl_FragColor = texture2D(tex0,tc);\n\
     	}",
-     xfadefs:
-    	"precision mediump float;\n\
+  xfadefs:
+    "precision mediump float;\n\
     	varying vec4 vColor;\n\
     	varying vec2 tc;\n\
 		uniform sampler2D tex0;\n\
@@ -107,8 +107,8 @@ var shades ={
     	void main(void) {\n\
         	gl_FragColor = mix(texture2D(tex0,tc),texture2D(tex1,tc),xfade);\n\
     	}",
-     lumakeyfs:
-     	"precision mediump float;\n\
+  lumakeyfs:
+    "precision mediump float;\n\
      	uniform sampler2D tex0;\n\
      	uniform sampler2D tex1;\n\
      	varying vec2 tc;\n\
@@ -122,9 +122,9 @@ var shades ={
      		float lum = dot(texture2D(tex0,tc),lumacoeff);\n\
      		lum = smoothstep(thresh-fade, thresh+fade,lum);\n\
      		gl_FragColor = mix(a,b,lum);\n\
-     	}",     
-     	rgbluma:
-     	"precision mediump float;\n\
+     	}",
+  rgbluma:
+    "precision mediump float;\n\
      	uniform sampler2D tex0;\n\
      	uniform sampler2D tex1;\n\
      	varying vec2 tc;\n\
@@ -135,8 +135,8 @@ var shades ={
      		vec4 a = mix(texture2D(tex0,tc),texture2D(tex1,tc),vec4(feedback));\n\
      		gl_FragColor = vec4(vec3(dot(a,lumcoeff)),1.);\n\
      	}",
-     	hsflow:
-     	"precision mediump float;\n\
+  hsflow:
+    "precision mediump float;\n\
 		varying vec2 tc;\n\
 		uniform sampler2D tex0;\n\
 		uniform sampler2D tex1;\n\
@@ -165,8 +165,8 @@ var shades ={
 			//float within = float(abs(length(vec2(vxd,vyd)))<1.)*float(abs(length(vec2(vxd,vyd)))>0.);\n\
 			gl_FragColor = mix(pout,vec4(0.),float(gradmag1==0.));\n\
 		}",
-		flowrepos:
-		"precision mediump float;\n\
+  flowrepos:
+    "precision mediump float;\n\
 		//setup for 2 texture\n\
 		varying vec2 tc;\n\
 		uniform vec2 amt;\n\
@@ -188,9 +188,9 @@ var shades ={
     	\n\
     	// output texture\n\
     	gl_FragColor = repos;\n\
-		}" ,
-		slide:
-		"precision mediump float;\n\
+		}",
+  slide:
+    "precision mediump float;\n\
 		uniform float slide;\n\
 		uniform float offset;\n\
 			varying vec2 tc;\n\
@@ -205,8 +205,8 @@ var shades ={
 			vec4 sd = vec4(1.0 / d);\n\
 			gl_FragColor = input1 + ((input0 - input1) * sd);\n\
 			}",
-		adds:
-		"precision mediump float;\n\
+  adds:
+    "precision mediump float;\n\
 			uniform float diff;\n\
 			varying vec2 tc;\n\
 			uniform sampler2D tex0;\n\
@@ -218,8 +218,8 @@ var shades ={
 			vec4 result = v0*vec4(diff) + v1;\n\
 			gl_FragColor = vec4(result.rgb,1.);\n\
 		}",
-		testfs:
-    	"precision mediump float;\n\
+  testfs:
+    "precision mediump float;\n\
     	varying vec4 vColor;\n\
     	varying vec2 tc;\n\
 		//uniform sampler2D tex0;\n\
@@ -228,8 +228,8 @@ var shades ={
     	void main(void) {\n\
         	gl_FragColor = vColor;\n\
     	}",
-    	cross:
-    	"precision mediump float;\n\
+  cross:
+    "precision mediump float;\n\
     	varying vec2 tc;\n\
 		uniform sampler2D tex0;\n\
 		uniform float offset;\n\
@@ -244,8 +244,8 @@ var shades ={
 			input0 += texture2D(tex0,tc-y1);\n\
         	gl_FragColor = input0*vec4(0.2);\n\
     	}",
-    	flowcomp:
-    	"precision mediump float;\n\
+  flowcomp:
+    "precision mediump float;\n\
 			uniform float thresh;\n\
 			varying vec2 tc;\n\
 			uniform vec2 pixels;\n\
@@ -260,8 +260,8 @@ var shades ={
 			vec4 v1 = mix(texture2D(tex1, tc),texture2D(tex0,tc),step(offs,thresh));\n\
 			gl_FragColor = vec4(v1.rgb,1.);\n\
 		}",
-		bossr:
-		"precision mediump float;\n\
+  bossr:
+    "precision mediump float;\n\
 			varying vec2 tc;\n\
 			uniform vec4 LC;\n\
 			uniform float hscale;\n\
@@ -286,8 +286,8 @@ var shades ={
 			vec4 fc = mix(mix(LC*greyval,LC*ic*greyval,fground),ic,smoothstep(dthresh-dfade,dthresh+dfade,greyval));\n\
 			gl_FragColor = vec4(fc.rgb,1.);\n\
 			}",
-		colorshift:
-    	"precision mediump float;\n\
+  colorshift:
+    "precision mediump float;\n\
     	\n\
     	vec3 rgb2hsv(vec3 c){\n\
     		vec4 K = vec4(0.0, -1.0 / 3.0, 2.0 / 3.0, -1.0);\n\
@@ -320,8 +320,8 @@ var shades ={
     		fragRGB = hsv2rgb(fragHSV);\n\
     		gl_FragColor = vec4(fragRGB, textureColor.w);\n\
     	}",
-    	gaussfs:
-    	"precision mediump float;\n\
+  gaussfs:
+    "precision mediump float;\n\
     	uniform sampler2D tex0;\n\
     	varying vec2 texcoordM;\n\
 		varying vec2 texcoordB0;\n\
@@ -341,8 +341,8 @@ var shades ={
     		vec4 sampleF2 = texture2D(tex0, texcoordF2);\n\
 			gl_FragColor = 0.1752 * sampleM + 0.1658 * (sampleB0 + sampleF0) + 0.1403 * (sampleB1 + sampleF1) + 0.1063 * (sampleB2 + sampleF2);\n\
 		}",
-		mostort:
-		"precision mediump float;\n\
+  mostort:
+    "precision mediump float;\n\
 			uniform float amount;\n\
 			varying vec2 tc;\n\
 			uniform sampler2D tex0;\n\
@@ -353,10 +353,9 @@ var shades ={
 			vec4 input1 = texture2D(tex1,tc);\n\
 			vec4 input0 = texture2D(tex0,tc+vec2((input1.r-0.5)*amount,(input1.g-0.5)*amount));\n\
 			gl_FragColor = input0;\n\
-			}"
-		,
-		momask:
-		"precision mediump float;\n\
+			}",
+  momask:
+    "precision mediump float;\n\
 			uniform float amount;\n\
 			uniform float greymode;\n\
 			varying vec2 tc;\n\
@@ -369,11 +368,10 @@ var shades ={
 			vec4 input0 = texture2D(tex0,tc);\n\
 			float mask = smoothstep(0.3,0.2,input1.b);\n\
 			float grid = step(mod(tc.x*20.+20.,1.),0.95)*step(mod(tc.y*20.+20.,1.),0.95)*0.83+0.97;\n\
-			gl_FragColor = mix(mix(input0,vec4(smoothstep(0.3,0.9,input0.g)),greymode),vec4(vec3(grid),1.),mask);\n\
-			}"
-		,
-		mopaint:
-		"precision highp float;\n\
+			gl_FragColor = mix(mix(input0,vec4(smoothstep(0.3,0.9,input0.g)),greymode),vec4(vec3(grid),0.),mask);\n\
+			}",
+  mopaint:
+    "precision highp float;\n\
 			uniform float kill;\n\
 			varying vec2 tc;\n\
 			uniform sampler2D tex0;\n\
@@ -382,6 +380,5 @@ var shades ={
 			{\n\
 			vec4 input0 = texture2D(tex0,tc);\n\
 			gl_FragColor = mix(input0-vec4(0.,0.,0.0005,0.),vec4(0.5,0.5,0.0,1.0),kill);\n\
-			}"
-		
+			}",
 };

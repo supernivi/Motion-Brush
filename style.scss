@@ -1,0 +1,28 @@
+.top {
+  position: fixed;
+  width: 100%;
+  margin: 0 auto;
+  z-index: 1;
+  display: flex;
+  justify-content: center;
+  top: 1.3rem;
+}
+canvas {
+  /* margin: 0 auto; */
+  position: absolute;
+  width: 100vw;
+  height: 100vh;
+}
+.bottom {
+  position: fixed;
+  width: 100%;
+  margin: 0 auto;
+  z-index: 1;
+  display: flex;
+  bottom: 0;
+  pointer-events: none;
+  justify-content: center;
+  button {
+    pointer-events: all;
+  }
+}

@@ -1,24 +1,40 @@
 .top {
-    position: fixed;
-    width: 100%;
-    margin: 0 auto;
-    z-index: 1;
-    display: flex;
-    justify-content: center;
-    top: 1.3rem;
-  }
-  canvas {
-    /* margin: 0 auto; */
-    position: absolute;
-    width: 100vw;
-    height: 100vh;
-  }
-  .bottom {
-    position: fixed;
-    width: 100%;
-    margin: 0 auto;
-    z-index: 1;
-    display: flex;
-    justify-content: center;
-    bottom: 0;
-  }
+  position: fixed;
+  width: 100%;
+  margin: 0 auto;
+  z-index: 1;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  top: 1.3rem;
+}
+
+canvas {
+  /* margin: 0 auto; */
+  position: absolute;
+  width: 100vw;
+  height: 100vh;
+}
+
+.bottom {
+  position: fixed;
+  width: 100%;
+  margin: 0 auto;
+  z-index: 1;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  bottom: 0;
+  pointer-events: none;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.bottom button {
+  pointer-events: all;
+}
+/*# sourceMappingURL=style.css.map */

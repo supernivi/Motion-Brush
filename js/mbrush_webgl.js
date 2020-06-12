@@ -26,8 +26,8 @@ animate();
 
 function initGL() {
   gl = c.getContext("experimental-webgl", {
-    alpha: true,
-    preserveDrawingBuffer: true,
+    alpha: false,
+    // preserveDrawingBuffer: true,
   });
   gl.blendFunc(gl.ONE, gl.ONE_MINUS_SRC_ALPHA);
   gl.disable(gl.BLEND);

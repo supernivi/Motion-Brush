@@ -367,7 +367,7 @@ var shades = {
 			vec4 input1 = texture2D(tex1,tc);\n\
 			vec4 input0 = texture2D(tex0,tc);\n\
 			float mask = smoothstep(0.3,0.2,input1.b);\n\
-			float grid = step(mod(tc.x*20.+20.,1.),0.95)*step(mod(tc.y*20.+20.,1.),0.95)*0.83+0.97;\n\
+			float grid = step(mod(tc.x*20.+20.,1.),0.95)*step(mod(tc.y*20.+20.,1.),0.0)*0.83+0.97;\n\
 			gl_FragColor = mix(mix(input0,vec4(smoothstep(0.3,0.9,input0.g)),greymode),vec4(vec3(grid),0.),mask);\n\
 			}",
   mopaint:

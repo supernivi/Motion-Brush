@@ -41,9 +41,10 @@
   <script>
     function downloadCanvas() {
       var canvas = document.getElementById("c");
+      var download = document.getElementById("download");
       var data = canvas
         .toDataURL()
-        .replace("image/png", "image/octet-stream");
+      //.replace("image/png", "image/octet-stream");
       download.setAttribute("href", data);
     }
   </script>

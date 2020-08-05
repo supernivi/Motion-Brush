@@ -182,10 +182,11 @@ function animate() {
 }
 
 $(document).ready(function () {
+  // Mouse brush scale
   $("canvas").mousedown(function (e) {
     e.preventDefault();
     brush.scale = 0.1;
-    $(window).bind("mouseup", function (e) {
+    $(window).bind("mouseup", function () {
       brush.scale = 0;
       $(window).unbind("mouseup");
     });
@@ -205,6 +206,7 @@ $(document).ready(function () {
     mmx = (ev.pageX / c.width) * 2 - 1;
     mmy = (ev.pageY / c.height) * -2 + 1;
   });
+  // Touch brush scale
   $("canvas").bind("touchstart", function (e) {
     e.preventDefault();
     brush.scale = 0.1;
